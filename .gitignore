@@ -1,4 +1,13 @@
+*.meta
+
 hw1/.vs
-hw1/Assets/Japanese Coin
+hw1/Assets/Billiard Balls/
 hw1/Build
 hw1/Library
+hw1/516030910199_ChenNuo_hw1/
+hw1/516030910199_ChenNuo_hw1.rar
+roll a bal/
+# hw3/Assets
+hw3/Library
+hw3/Temp
+hw3/.vs

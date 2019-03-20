@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{2853C746-4039-6B57-3833-6C263FE920E7}</ProjectGuid>
+    <ProjectGuid>{B2B58FB2-4462-6B0C-A872-40DD957E5FE0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -60,25 +60,36 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CameraController.cs" />
-    <Compile Include="Assets\Scripts\CoinController.cs" />
-    <Compile Include="Assets\Scripts\SphereController.cs" />
-    <None Include="Assets\Japanese Coin\Environment\HDR_Readme.txt" />
-    <None Include="Assets\Japanese Coin\hello there.txt" />
+    <Compile Include="Assets\lineController.cs" />
+    <Compile Include="Assets\Scripts\BallController.cs" />
+    <Compile Include="Assets\Scripts\cameraController.cs" />
+    <Compile Include="Assets\Scripts\eventController.cs" />
+    <Compile Include="Assets\Scripts\failController.cs" />
+    <Compile Include="Assets\Scripts\holesController.cs" />
+    <Compile Include="Assets\Scripts\ScoreTextController.cs" />
+    <Compile Include="Assets\Scripts\startController.cs" />
+    <Compile Include="Assets\Scripts\WhileBallControoller.cs" />
+    <Compile Include="Assets\Scripts\winEventController.cs" />
+    <None Include="Assets\skybox\mp_5dim\mp_5dim.shader" />
+    <None Include="Assets\skybox\license.txt" />
+    <None Include="Assets\skybox\readme.txt" />
+    <None Include="Assets\skybox\mp_5dim\readme.txt" />
+    <None Include="Assets\skybox\mp_5dim\license.txt" />
+    <None Include="Assets\skybox\mp_5dim.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.CollabProxy.Editor">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.DataPrivacy">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/softwares/unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -282,13 +293,13 @@
       <HintPath>D:/softwares/unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Editor">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.StandardEvents">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.Analytics.Tracker">
-      <HintPath>D:/github/SE341-GameDevelop/hw1/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
+      <HintPath>D:/github/SE341-GameDevelop/New Unity Project/Library/PackageCache/com.unity.analytics@3.2.2/Unity.Analytics.Tracker.dll</HintPath>
     </Reference>
     <Reference Include="netstandard">
       <HintPath>D:/softwares/unity/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
