@@ -6,7 +6,6 @@
 		// 物体的纹理（初始值全白）
 		_MainTex("Main Tex", 2D) = "white" {}
 		_Specular("Specular", Color) = (1, 1, 1, 1)
-		_Gloss("Gloss", Range(8.0, 256)) = 20
 	}
 		SubShader{
 			Pass {
@@ -25,7 +24,6 @@
 				// ST: Scale + translation: 缩放(xy)和平移(zw)
 				float4 _MainTex_ST;
 				fixed4 _Specular;
-				float _Gloss;
 
 				struct a2v {
 					float4 vertex : POSITION;
@@ -69,4 +67,5 @@
 		}
 			// 设置FallBack
 			FallBack "Specular"
+			// CustomEditor "CustomShaderGUI"
 }

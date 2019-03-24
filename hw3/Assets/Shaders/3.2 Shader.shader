@@ -67,7 +67,8 @@
 			}
 		
 		ENDCG
+		}
 	}
-	}
+		// CustomEditor "CustomShaderGUI"
 }
 

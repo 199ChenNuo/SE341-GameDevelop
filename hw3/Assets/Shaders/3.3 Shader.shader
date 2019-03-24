@@ -52,4 +52,5 @@
             ENDCG
         }
     }
+		// CustomEditor "CustomShaderGUI"
 }

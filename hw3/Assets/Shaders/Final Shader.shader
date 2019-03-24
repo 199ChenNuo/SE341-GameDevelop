@@ -70,5 +70,5 @@
 			}
 		}
 			FallBack "Specular"
-			// CustomEditor "CustomShaderGUI"
+			CustomEditor "CustomShaderGUI"
 }
