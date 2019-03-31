@@ -21,7 +21,7 @@
 				#pragma shader_feature USE_BLINN
 
 				#include "Lighting.cginc"
-			#include "UnityCG.cginc"
+				#include "UnityCG.cginc"
 
 				fixed4 _Color;
 				sampler2D _MainTex;
@@ -45,76 +45,52 @@
 
 				v2f vert(a2v v) {
 					v2f i;
-#if USE_COLOR
-					
-					//// old version: i.position = mul(UNITY_MATRIX_MVP, v.position);
-					// 位置： 局部坐标系 -> 屏幕空间中的位置
 					i.pos = UnityObjectToClipPos(v.vertex);
-					return i;
-#endif
-#if USE_NORMAL
-					// v2f i;
-					//// old version: i.position = mul(UNITY_MATRIX_MVP, v.position);
-					// 位置： 局部坐标系 -> 屏幕空间中的位置
-					i.pos = UnityObjectToClipPos(v.vertex);
-					// 法线方向：物体空间 -> 世界坐标系
+
+					#if USE_NORMAL
 					i.worldNormal = UnityObjectToWorldNormal(v.normal);
-					return i;
-#endif
-#if USE_TEXTURE
-					i.pos = UnityObjectToClipPos(v.vertex);
+					#endif
+
+					#if USE_TEXTURE
 					i.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
-					return i;
-#endif
-#if USE_BLINN
-					v2f o;
-					o.pos = UnityObjectToClipPos(v.vertex);
+					#endif
 
-					o.worldNormal = UnityObjectToWorldNormal(v.normal);
+					#if USE_BLINN
+					i.worldNormal = UnityObjectToWorldNormal(v.normal);
+					i.worldPos = UnityObjectToClipPos(v.vertex).xyz;
+					i.uv = TRANSFORM_TEX(v.texcoord, _MainTex);
+					#endif
 
-					o.worldPos = UnityObjectToClipPos(v.vertex).xyz;
-
-					o.uv = v.texcoord.xy * _MainTex_ST.xy + _MainTex_ST.zw;
-					return o;
-#endif
-					i.pos = UnityObjectToClipPos(v.vertex);
 					return i;
 				}
 
 				fixed4 frag(v2f i) : SV_Target {
-
-#if USE_COLOR
-					return _MainColor;
-#endif
-#if USE_NORMAL
+					#if USE_NORMAL
 					return float4(i.worldNormal, 1);
-#endif
-#if USE_TEXTURE
+					#endif
+
+					#if USE_TEXTURE
 					return tex2D(_MainTex, i.uv);
-#endif
-#if USE_BLINN
+					#endif
+
+					#if USE_BLINN
 					fixed3 worldNormal = normalize(i.worldNormal);
 					fixed3 worldLightDir = normalize(UnityWorldSpaceLightDir(i.worldPos));
-
-					// Use the texture to sample the diffuse color
 					fixed3 albedo = tex2D(_MainTex, i.uv).rgb * _Color.rgb;
-
 					fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
-
 					fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(worldNormal, worldLightDir));
-
 					fixed3 viewDir = normalize(UnityWorldSpaceViewDir(i.worldPos));
 					fixed3 halfDir = normalize(worldLightDir + viewDir);
 					fixed3 specular = _LightColor0.rgb * _Specular.rgb * pow(max(0, dot(worldNormal, halfDir)), _Shininess);
-
 					return fixed4(ambient + diffuse + specular, 1.0);
-#endif
+					#endif
+
 					return _MainColor;
 				}
 
 				ENDCG
 			}
 		}
-			// FallBack "Specular"
+			FallBack "Specular"
 			CustomEditor "CustomShaderGUI"
 }
