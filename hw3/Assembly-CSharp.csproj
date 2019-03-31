@@ -60,7 +60,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CustomShaderGUI.cs.cs" />
+    <Compile Include="Assets\Scripts\CustomShaderGUI.cs" />
     <None Include="Assets\Shaders\3.2 Shader.shader" />
     <None Include="Assets\Shaders\3.1 Shader.shader" />
     <None Include="Assets\Shaders\4.1 Shader.shader" />
