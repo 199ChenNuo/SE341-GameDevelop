@@ -60,13 +60,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\CustomShaderGUI.cs" />
+    <Compile Include="Assets\DissolveController.cs" />
+    <Compile Include="Assets\Scripts\FogWithDepthTexture.cs" />
+    <Compile Include="Assets\Scripts\GrassSpanner.cs" />
     <None Include="Assets\Shaders\3.2 Shader.shader" />
+    <None Include="Assets\Shaders\grass.shader" />
     <None Include="Assets\Shaders\3.1 Shader.shader" />
     <None Include="Assets\Shaders\4.1 Shader.shader" />
     <None Include="Assets\Shaders\Final Shader.shader" />
     <None Include="Assets\Shaders\4.2 Shader.shader" />
     <None Include="Assets\Shaders\3.3 Shader.shader" />
+    <None Include="Assets\Shaders\Dissolve.shader" />
     <None Include="Assets\Textures\BlendTextureShader\readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/github/SE341-GameDevelop/hw3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
