@@ -1,40 +1,41 @@
-﻿Shader "chenjd/Grass" {
+﻿Shader "geom/gemo-shader" {
 	Properties{
-
+		// 草的纹理
 		_MainTex("Albedo (RGB)", 2D) = "white" {}
+		// 用alpha纹理来决定草的形状
 		_AlphaTex("Alpha (A)", 2D) = "white" {}
+		// 草的高度和宽度
 		_Height("Grass Height", float) = 3
 		_Width("Grass Width", range(0, 0.1)) = 0.05
 
 	}
 		SubShader{
 			Cull off
-				Tags{ "Queue" = "AlphaTest" "RenderType" = "TransparentCutout" "IgnoreProjector" = "True" }
-
+			Tags{ "Queue" = "AlphaTest" "RenderType" = "TransparentCutout" "IgnoreProjector" = "True" }
 
 			Pass
 			{
-
 				Cull OFF
 				Tags{ "LightMode" = "ForwardBase" }
 				AlphaToMask On
 
-
 				CGPROGRAM
-
+				#include "UnityLightingCommon.cginc"
 				#include "UnityCG.cginc" 
+
+				// 定义顶点着色器、片段着色器和几何着色器
 				#pragma vertex vert
 				#pragma fragment frag
 				#pragma geometry geom
-				#include "UnityLightingCommon.cginc" // 用来处理光照的一些效果
 
-				#pragma target 4.0
+				// 着色器编译目标级别（需要大于4.0）
+				#pragma target 5.0
 
 				sampler2D _MainTex;
 				sampler2D _AlphaTex;
 
-				float _Height;//草的高度
-				float _Width;//草的宽度
+				float _Height;
+				float _Width;
 				struct v2g
 				{
 					float4 pos : SV_POSITION;

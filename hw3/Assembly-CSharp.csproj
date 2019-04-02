@@ -61,8 +61,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\DissolveController.cs" />
+    <Compile Include="Assets\Scripts\Depth.cs" />
     <Compile Include="Assets\Scripts\FogWithDepthTexture.cs" />
     <Compile Include="Assets\Scripts\GrassSpanner.cs" />
+    <Compile Include="Assets\Scripts\PostEffectsBase.cs" />
+    <None Include="Assets\Shaders\fog.shader" />
     <None Include="Assets\Shaders\3.2 Shader.shader" />
     <None Include="Assets\Shaders\grass.shader" />
     <None Include="Assets\Shaders\3.1 Shader.shader" />
@@ -70,8 +73,11 @@
     <None Include="Assets\Shaders\Final Shader.shader" />
     <None Include="Assets\Shaders\4.2 Shader.shader" />
     <None Include="Assets\Shaders\3.3 Shader.shader" />
+    <None Include="Assets\Shaders\cartoon-grass.shader" />
     <None Include="Assets\Shaders\Dissolve.shader" />
+    <None Include="Assets\Shaders\geom-grass.shader" />
     <None Include="Assets\Textures\BlendTextureShader\readme.txt" />
+    <None Include="Assets\Shaders\water.shader" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/github/SE341-GameDevelop/hw3/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
