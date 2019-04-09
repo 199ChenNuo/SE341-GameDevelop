@@ -1,6 +1,4 @@
-﻿/*
- * 
-using UnityEngine;
+﻿using UnityEngine;
 using System.Collections.Generic;
 
 using Random = System.Random;
@@ -145,5 +143,3 @@ public class GrassSpanner : MonoBehaviour
         }
     }
 }
-
-*/

@@ -11,7 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/basic shader.unity
     guid: 96eb4aafdeba8c3448ff4eab3af9b704
-  - enabled: 1
-    path: Assets/Scenes/grass.unity
-    guid: 22584f35919037046ab660c0283ebb96
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   m_configObjects: {}

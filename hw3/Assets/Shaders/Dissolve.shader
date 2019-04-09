@@ -1,7 +1,4 @@
-﻿// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
-// Upgrade NOTE: replaced 'mul(UNITY_MATRIX_MVP,*)' with 'UnityObjectToClipPos(*)'
-
-Shader "Unlit/Dissolve"
+﻿Shader "Unlit/Dissolve"
 {
     Properties
     {
@@ -72,49 +69,40 @@ Shader "Unlit/Dissolve"
 			v2f vert(a2v v) {
 				v2f o;
 				o.pos = UnityObjectToClipPos(v.vertex);
-
 				o.uvMainTex = TRANSFORM_TEX(v.texcoord, _MainTex);
 				o.uvBumpMap = TRANSFORM_TEX(v.texcoord, _BumpMap);
 				o.uvBurnMap = TRANSFORM_TEX(v.texcoord, _BurnMap);
-
 				TANGENT_SPACE_ROTATION;
 				o.lightDir = mul(rotation, ObjSpaceLightDir(v.vertex)).xyz;
-
 				o.worldPos = mul(unity_ObjectToWorld, v.vertex).xyz;
-
 				TRANSFER_SHADOW(o);
-
 				return o;
 			}
 
 			fixed4 frag(v2f i) : SV_Target {
+				// 对噪声纹理采样，然后传递给clip()函数
 				fixed3 burn = tex2D(_BurnMap, i.uvBurnMap).rgb;
-			_BurnAmount = _Time.y*0.3;
+				_BurnAmount = _Time.y*0.1;
 				clip(burn.r - _BurnAmount);
-
+				// 如果像素没有被剔除，那么进行正常的计算
 				float3 tangentLightDir = normalize(i.lightDir);
 				fixed3 tangentNormal = UnpackNormal(tex2D(_BumpMap, i.uvBumpMap));
-
+				// 反射率
 				fixed3 albedo = tex2D(_MainTex, i.uvMainTex).rgb;
-
 				fixed3 ambient = UNITY_LIGHTMODEL_AMBIENT.xyz * albedo;
-
 				fixed3 diffuse = _LightColor0.rgb * albedo * max(0, dot(tangentNormal, tangentLightDir));
-
+				// t为1代表像素处于消融的边界，需要将颜色与烧焦的颜色混合
 				fixed t = 1 - smoothstep(0.0, _LineWidth, burn.r - _BurnAmount);
 				fixed3 burnColor = lerp(_BurnFirstColor, _BurnSecondColor, t);
 				burnColor = pow(burnColor, 5);
-
 				UNITY_LIGHT_ATTENUATION(atten, i, i.worldPos);
 				fixed3 finalColor = lerp(ambient + diffuse * atten, burnColor, t * step(0.0001, _BurnAmount));
-
 				return fixed4(finalColor, 1);
 			}
 
 			ENDCG
 		}
 
-		// Pass to render object as a shadow caster
 		Pass {
 			Tags { "LightMode" = "ShadowCaster" }
 
@@ -138,19 +126,15 @@ Shader "Unlit/Dissolve"
 
 			v2f vert(appdata_base v) {
 				v2f o;
-
 				TRANSFER_SHADOW_CASTER_NORMALOFFSET(o)
-
 				o.uvBurnMap = TRANSFORM_TEX(v.texcoord, _BurnMap);
-
 				return o;
 			}
 
 			fixed4 frag(v2f i) : SV_Target {
-				_BurnAmount = _Time.y * 0.3;
+				_BurnAmount = _Time.y * 0.1;
 				fixed3 burn = tex2D(_BurnMap, i.uvBurnMap).rgb;
 				clip(burn.r - _BurnAmount);
-
 				SHADOW_CASTER_FRAGMENT(i)
 			}
 			ENDCG

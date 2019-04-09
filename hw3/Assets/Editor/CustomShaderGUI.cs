@@ -47,7 +47,6 @@ public class CustomShaderGUI : ShaderGUI
             GUIContent mainTexLabel = new GUIContent(mainTex.displayName);
             editor.TextureProperty(mainTex, mainTexLabel.text);
         }
-
         else
         {
             shaderChioce = ShaderChioce.BLINN_PHONG;
@@ -62,7 +61,7 @@ public class CustomShaderGUI : ShaderGUI
             {
                 MaterialProperty shininess = FindProperty("_Shininess", properties);
                 GUIContent shininessLabel = new GUIContent(shininess.displayName);
-                editor.FloatProperty(shininess, "Specular Factor");
+                editor.FloatProperty(shininess, "Shiniess");
             }
         }
 
