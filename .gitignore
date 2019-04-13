@@ -1,5 +1,7 @@
 *.meta
-
+*.obj 
+*.png
+*.mat
 hw1/.vs
 hw1/Assets/Billiard Balls/
 hw1/Build
@@ -16,3 +18,8 @@ hw3/Assets/LowPoly_Foliage/
 hci-model/
 hw4/Library/
 hw4/Temp/
+hw4/.vs/
+hw4/Build/
+hw4/Assets/Cope! Free Skybox Pack
+hw4/obj/
+hw4/Assets/Packages/gp2019-hw4-init.unitypackage
