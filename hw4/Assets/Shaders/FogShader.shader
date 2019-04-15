@@ -2,16 +2,17 @@
 {
 	Properties{
 		_MainTex("Base (RGB)", 2D) = "white" {}
-		_FogDensity("Fog Density", Float) = 1.0
+		_FogDensity("Fog Density", Float) = 0.01
 		_FogColor("Fog Color", Color) = (1, 1, 1, 1)
-		_FogStart("Fog Start", Float) = 0.0
-		_FogEnd("Fog End", Float) = 1.0
+		_FogStart("Fog Start", Float) = 10.0
+		_FogEnd("Fog End", Float) = 15.0
 	}
 		SubShader{
 			CGINCLUDE
 
 			#include "UnityCG.cginc"
 
+			// 屏幕后处理的四个点的位置
 			float4x4 _FrustumCornersRay;
 
 			sampler2D _MainTex;

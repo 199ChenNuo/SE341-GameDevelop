@@ -56,7 +56,7 @@
             {
                 //// TODO: your implementation
                 // return float3(1,1,1);
-				half t = pow(1 - cosA, 5);   // ala Schlick interpoliation
+				half t = pow(1 - cosA, 5);
 				return R + (1 - R) * t;
             }
 

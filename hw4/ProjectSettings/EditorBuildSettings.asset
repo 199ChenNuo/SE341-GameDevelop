@@ -11,4 +11,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/ShaderScene.unity
     guid: 2fed05768fb13e041acb5e0369bd7916
+  - enabled: 1
+    path: Assets/Scenes/CartoonScene.unity
+    guid: 0a7b9da0f6e26ed46aba143a19e05bad
+  - enabled: 1
+    path: Assets/Scenes/FogScene.unity
+    guid: 3be932d2fbf58e544a520851af216cf7
   m_configObjects: {}

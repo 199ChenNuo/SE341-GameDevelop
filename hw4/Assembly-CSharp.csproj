@@ -63,12 +63,19 @@
     <Compile Include="Assets\BRDF\MaterialChange.cs" />
     <Compile Include="Assets\BRDF\MaterialMatrixController.cs" />
     <Compile Include="Assets\BRDF\UnitySingleton.cs" />
+    <Compile Include="Assets\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_Demo.cs" />
+    <Compile Include="Assets\Fantasy Skybox FREE\Demo\Scripts\GE_FantasySkyboxFREE_UIs.cs" />
+    <Compile Include="Assets\GE Common Assets\GE Toggle Full Screen\Scripts\GE_ToggleFullScreenUI.cs" />
+    <Compile Include="Assets\GE Common Assets\Scripts\GE_UIResponder.cs" />
     <Compile Include="Assets\Scripts\FogWithDepthTexture.cs" />
     <Compile Include="Assets\Scripts\PostEffectsBase.cs" />
     <Compile Include="Assets\Scripts\Translating.cs" />
+    <None Include="Assets\Fantasy Skybox FREE\Readme.txt" />
+    <None Include="Assets\Fantasy Skybox FREE\Fog and Ambient references.txt" />
     <None Include="Assets\Shaders\CartoonShader.shader" />
     <None Include="Assets\Shaders\FogShader.shader" />
     <None Include="Assets\BRDF\MyBRDFShader.shader" />
+    <None Include="Assets\GE Common Assets\Readme.txt" />
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>D:/github/SE341-GameDevelop/hw4/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>

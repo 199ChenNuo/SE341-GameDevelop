@@ -1,6 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/*
+PostEffectsBase{
+    void CheckReources();
+    bool CheckSupport();
+    void NotSupported();
+    void Start();
+    Material CheckShaderAndCreateMaterial();
+}
+*/
+
 public class FogWithDepthTexture : PostEffectsBase
 {
 
@@ -11,6 +21,7 @@ public class FogWithDepthTexture : PostEffectsBase
     {
         get
         {
+            //指定一个shader来创建一个用于处理渲染纹理的材质
             fogMaterial = CheckShaderAndCreateMaterial(fogShader, fogMaterial);
             return fogMaterial;
         }
@@ -21,10 +32,7 @@ public class FogWithDepthTexture : PostEffectsBase
     {
         get
         {
-            if (myCamera == null)
-            {
-                myCamera = GetComponent<Camera>();
-            }
+            if (myCamera == null) myCamera = GetComponent<Camera>();
             return myCamera;
         }
     }
@@ -34,25 +42,22 @@ public class FogWithDepthTexture : PostEffectsBase
     {
         get
         {
-            if (myCameraTransform == null)
-            {
-                myCameraTransform = camera.transform;
-            }
-
+            if (myCameraTransform == null) myCameraTransform = camera.transform;
             return myCameraTransform;
         }
     }
 
-    [Range(0.0f, 3.0f)]
-    public float fogDensity = 1.0f;
+    [Range(0.0f, 0.1f)]
+    public float fogDensity = 0.01f;
 
     public Color fogColor = Color.white;
 
-    public float fogStart = 0.0f;
-    public float fogEnd = 2.0f;
+    public float fogStart = 10.0f;
+    public float fogEnd = 15.0f;
 
     void OnEnable()
     {
+        // enable摄像机获取深度纹理
         camera.depthTextureMode |= DepthTextureMode.Depth;
     }
 
@@ -60,6 +65,7 @@ public class FogWithDepthTexture : PostEffectsBase
     {
         if (material != null)
         {
+            // 屏幕后处理对应的平面的四个角
             Matrix4x4 frustumCorners = Matrix4x4.identity;
 
             float fov = camera.fieldOfView;
@@ -100,6 +106,7 @@ public class FogWithDepthTexture : PostEffectsBase
             material.SetFloat("_FogStart", fogStart);
             material.SetFloat("_FogEnd", fogEnd);
 
+            // 将frustumCorners中的值传递给其他材质并且渲染出结果
             Graphics.Blit(src, dest, material);
         }
         else

@@ -2,6 +2,7 @@
 *.obj 
 *.png
 *.mat
+*.fbx
 hw1/.vs
 hw1/Assets/Billiard Balls/
 hw1/Build
@@ -23,3 +24,8 @@ hw4/Build/
 hw4/Assets/Cope! Free Skybox Pack
 hw4/obj/
 hw4/Assets/Packages/gp2019-hw4-init.unitypackage
+hw4/Assets/Fantasy Skybox FREE/
+hw4/Assets/FreeCharacter/
+hw4/Assets/GE Common Assets/
+hw4/Assets/Low_Poly_Mini_Village/
+hw4/Assets/models
