@@ -139,9 +139,9 @@
 				fixed3 diffuse = _LightColor0.rgb * albedo * tex2D(_Ramp, float2(diff, diff)).rgb;
 
 				fixed spec = dot(worldNormal, worldHalfDir);
-				fixed w = fwidth(spec) * 2.0;
-				fixed3 specular = _Specular.rgb * lerp(0, 1, smoothstep(-w, w, spec + _SpecularScale - 1)) * step(0.0001, _SpecularScale);
-				fixed3 specular2 = _Specular2.rgb * lerp(0, 1, smoothstep(-w, w, spec + _SpecularScale2 - 1)) * step(0.1, _SpecularScale2);
+				fixed weight = fwidth(spec) * 2.0;
+				fixed3 specular = _Specular.rgb * lerp(0, 1, smoothstep(-weight, weight, spec + _SpecularScale - 1)) * step(0.0001, _SpecularScale);
+				fixed3 specular2 = _Specular2.rgb * lerp(0, 1, smoothstep(-weight, weight, spec + _SpecularScale2 - 1)) * step(0.1, _SpecularScale2);
 				return fixed4(ambient + diffuse + specular + specular2, 1.0);
 			}
 

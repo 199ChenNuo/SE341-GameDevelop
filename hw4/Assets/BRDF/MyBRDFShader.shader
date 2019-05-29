@@ -56,26 +56,26 @@
             {
                 //// TODO: your implementation
                 // return float3(1,1,1);
-				half t = pow(1 - cosA, 5);
-				return R + (1 - R) * t;
+                half t = pow(1 - cosA, 5);
+                return R + (1 - R) * t;
             }
 
             float GGX_D(float roughness, float NdotH)
             {
                 //// TODO: your implementation
-				float roughPow = pow(roughness, 2);
-				float tmp = ((NdotH * NdotH)*(roughPow - 1)+1);
-				return roughPow / (3.1415926f * pow(tmp, 2));
+                float roughPow = pow(roughness, 2);
+                float tmp = ((NdotH * NdotH)*(roughPow - 1)+1);
+                return roughPow / (3.1415926f * pow(tmp, 2));
             }
 
             float CookTorrence_G (float NdotL, float NdotV, float VdotH, float NdotH){
                 //// TODO: your implementation
                 // return 1;
-				float tmp = (2 * NdotH) / VdotH;
-				if (NdotV > NdotL) {
-					return min(1, tmp * NdotL);
-				}
-				return min(1, tmp * NdotV);
+                float tmp = (2 * NdotH) / VdotH;
+                if (NdotV > NdotL) {
+                    return min(1, tmp * NdotL);
+                }
+                return min(1, tmp * NdotV);
 			}
 
             FragmentData vert (VertexData v)
